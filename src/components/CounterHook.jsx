@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useDocumentTitle from './hook/useDocumentTitle';
 
 function CounterHook() {
   const [counter, setCounter] = useState(0);
@@ -8,10 +9,8 @@ function CounterHook() {
   // componentDidUpdate
   // useEffect() vietoj dvieju auksciau isvardintu
 
-  useEffect(() => {
-    console.log('useEffect');
-    document.title = ` ${name} has clicked ${counter} times`;
-  });
+  // custom user hook
+  useDocumentTitle(`${name} has clicked ${counter} times`);
 
   return (
     <div>
