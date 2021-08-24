@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CounterHook() {
   const [counter, setCounter] = useState(0);
-  // console.log(arr);
-  // const counter = arr[0];
-  // const setCounter = arr[1];
+  const [name, setName] = useState('');
 
-  const obj = {
-    name: 'bob',
-    age: 55,
-  };
-  const { name, age } = obj;
-  console.log(name, age);
+  // componentDidMount
+  // componentDidUpdate
+  // useEffect() vietoj dvieju auksciau isvardintu
 
-  const arr1 = [100, 'yes', true];
-  const [nr, answer, monday] = arr1;
-  console.log(nr, answer, monday);
+  useEffect(() => {
+    console.log('useEffect');
+    document.title = ` ${name} has clicked ${counter} times`;
+  });
 
   return (
     <div>
-      <h2>CounterHook</h2>
-      <p>{counter}</p>
+      <h2>Counter of {name}</h2>
+      <p>
+        {name} has clicked {counter} times
+      </p>
       <button onClick={() => setCounter(counter + 1)}>Increase</button>
+      <button onClick={() => setName('James')}>Set name to James</button>
+      <input type="text" placeholder="enter Name" value={name} onChange={(event) => setName(event.target.value)} />
     </div>
   );
 }
