@@ -1,9 +1,12 @@
 import './App.css';
+import Counter from './components/Counter';
+import CounterHook from './components/CounterHook';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
+      <Counter />
+      <CounterHook />
     </div>
   );
 }
